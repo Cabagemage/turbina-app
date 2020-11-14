@@ -4,8 +4,6 @@ import momentDurationFormatSetup from "moment-duration-format";
 
 function Song({songTitle, songTime, onClick, curTime, duration}) {
 
-  const curPercentage = (curTime - duration) * 100;
-
 function formatDuration(duration) {
   return moment
     .duration(duration, "seconds")
@@ -14,11 +12,12 @@ function formatDuration(duration) {
 
 const clickHandler = (e) => {
 const rect = e.target.getBoundingClientRect();
-const x = e.clientX - rect.left
-const timeToGo  = x / rect.width * 100;
+const x = e.clientX - rect.left;
+const percentage = x / rect.width * 100;
+const timeToGo  = duration / 100 * percentage;
 onClick(timeToGo)
   }
-  // }
+
   return (
     <div className="song">
       <div className="song__container" >
@@ -27,7 +26,7 @@ onClick(timeToGo)
       </div>
       <div className="song__progress-bar" onClick={clickHandler}>
         <div className="song__progress-knob"
-        style={{width: `${curTime / duration * 100}%`}}/>
+             style={{width: `${curTime / duration * 100}%`}} />
       </div>
     </div>
   );
