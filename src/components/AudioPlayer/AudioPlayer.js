@@ -73,8 +73,7 @@ function AudioPlayer() {
           title={currentSong.title}
           musician={currentSong.musician}
           poet={currentSong.poet}
-          onTimeUpdate={onTimeUpdate}
-          onPlay={onPlay}
+
           duration={duration}
           curTime={curTime}
           onClick={curTime => {
@@ -110,7 +109,7 @@ function AudioPlayer() {
               <p className="expanded-box__text">{currentSong.lyrics}</p>
             )}
             {!lyricsShown && (
-              <Playlist songs={songs} changeCurSong={changeCurrentSong} />
+              <Playlist setCurTime={setCurTime} songs={songs} changeCurSong={changeCurrentSong} />
             )}
           </div>
         )}

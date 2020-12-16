@@ -19,7 +19,7 @@ function Song({ title, musician, poet,  curTime,  duration, onClick}) {
   }
 
   return (
-    <div className="song">
+    <div className="song" conflict={console.log('test')}>
       <div className="song__container">
         <span className="song__titles">
           <span className="song__title">{title} &mdash; </span>
