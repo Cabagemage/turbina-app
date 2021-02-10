@@ -9,9 +9,14 @@
 4. Перевести проект на Redux. 
 
 ### Использованный стек:
-Фреймворк React, вспомогательные библиотеки (classNames, Formik), 
+Фреймворк React.JS, вспомогательные библиотеки (classNames, Formik), 
 Методология БЭМ.
 
 ### Над проектом работали 
 
-Сергей Компаниец, Екатерина Костина, Андрей Зайцев 
+Сергей Компаниец (https://github.com/DelightVLG), Екатерина Костина (https://github.com/katekostina), Андрей Зайцев (https://github.com/Cabagemage)
+
+## Ссылки: 
+Ссылка на репозиторий: https://github.com/Cabagemage/turbina-app 
+
+Ссылка на лайв-версию проекта: https://cabagemage.github.io/turbina-app/
