@@ -1,4 +1,44 @@
 .body{
-  background: url('../../images/background.png') fixed;
   background-size: cover;
+  cursor: none;
+}
+
+.cursor{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(223, 86, 86);
+  z-index: 2000;
+  user-select: none;
+  pointer-events: none;
+}
+
+.follower{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background-color: #e9e9e9;
+  border-radius: 50%;
+  opacity: 0.8;
+  user-select: none;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .cursor{
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .follower{
+    width: 30px;
+    height: 30px;
+  }
 }
