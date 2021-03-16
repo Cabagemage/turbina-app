@@ -1,4 +1,27 @@
 .body{
-  background: url('../../images/background.png') fixed;
   background-size: cover;
+}
+
+.body__gradient{
+  background: linear-gradient(rgb(165, 75, 75), #9198e5);
+}
+
+
+.body__gradient_now{
+
+  transition: 55s ease-in-out blue;
+}
+
+.cursor {
+  border-radius: 50px;
+  width: 0px;
+  height: 0px;
+  border: solid 1px #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  -webkit-transform: translate(-50%, -50%) rotate(0deg);
+  transform: translate(-50%, -50%) rotate(0deg);
 }

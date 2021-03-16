@@ -43,7 +43,7 @@ const songs = [
     title: "Песня",
     musician: "Музыкант",
     poet: "Поэт",
-    audio: "",
+    audio: gosudarstvo,
     cover: "",
     videoUrl: "",
     lyrics: ""

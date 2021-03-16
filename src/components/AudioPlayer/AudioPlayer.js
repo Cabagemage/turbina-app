@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import Song from "./Song";
 import Playlist from "./Playlist";
 import PlayButton from "./PlayButton";
@@ -119,4 +119,4 @@ function AudioPlayer() {
   );
 }
 
-export default AudioPlayer;
+export default memo(AudioPlayer);
