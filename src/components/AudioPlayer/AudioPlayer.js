@@ -7,32 +7,37 @@ import ExpanderButton from "./ExpanderButton";
 import VideoButton from "./VideoButton";
 import Cover from "./Cover";
 import { songs } from "../../utils/songs.js";
-import throttle from "../../utils/throttling.js"
+import throttle from "../../utils/throttling.js";
 const classNames = require("classnames");
-
 
 function AudioPlayer() {
   const myPlayer = useRef(null);
+  let [index, setIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
   const [lyricsShown, setLyricsShown] = useState(songs.length < 2);
   const [duration, setDuration] = useState(0);
   const [curTime, setCurTime] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState(songs[0]);
+  const [currentSong, setCurrentSong] = useState(songs[index]);
 
-
-  const onTimeUpdate =  throttle(e => {
+  const onTimeUpdate = throttle((e) => {
     setCurTime(e.target.currentTime);
   }, 1000);
 
-  const onPlay= e => {
+  const onPlay = (e) => {
     setDuration(e.target.duration);
-  }
+  };
 
   useEffect(() => {
     playing ? myPlayer.current.play() : myPlayer.current.pause();
-    setDuration(myPlayer.current.duration)
+    setDuration(myPlayer.current.duration);
+    myPlayer.current.addEventListener("ended", function () {
+      setIndex(index++);
+      console.log(index);
+      setCurrentSong(songs[index]);
+    });
   });
+
 
   function toggleExpanded() {
     setExpanded(!expanded);
@@ -48,10 +53,10 @@ function AudioPlayer() {
   return (
     <>
       <audio
-      ref={myPlayer}
-      src={currentSong.audio}
-      onPlay={onPlay}
-      onTimeUpdate={onTimeUpdate}
+        ref={myPlayer}
+        src={currentSong.audio}
+        onPlay={onPlay}
+        onTimeUpdate={onTimeUpdate}
       >
         Your browser does not support the <code>audio</code> element.
       </audio>
@@ -76,14 +81,13 @@ function AudioPlayer() {
           poet={currentSong.poet}
           duration={duration}
           curTime={curTime}
-          onClick={curTime => {
-           myPlayer.current.currentTime = curTime
+          onClick={(curTime) => {
+            myPlayer.current.currentTime = curTime;
           }}
         />
 
         {/* grid-area: expander-button */}
         <ExpanderButton onClick={toggleExpanded} isExpanded={expanded} />
-
 
         {/* Following elements are rendered only when expanded===true (style: audioplayer_expanded)*/}
 
@@ -113,7 +117,6 @@ function AudioPlayer() {
             )}
           </div>
         )}
-
       </div>
     </>
   );
