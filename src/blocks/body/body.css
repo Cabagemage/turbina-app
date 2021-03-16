@@ -28,3 +28,17 @@
   user-select: none;
   pointer-events: none;
 }
+
+@media screen and (max-width: 768px) {
+  .cursor{
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .follower{
+    width: 30px;
+    height: 30px;
+  }
+}

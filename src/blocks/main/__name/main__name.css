@@ -24,14 +24,20 @@
 
 @media screen and (max-width: 610px) {
   .main__name{
-  width: 300px;
-  height: 90px;
+  width: 500px;
+  height: 250px;
 }
 }
 
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 518px) {
   .main__name{
-  width: 270px;
-  height: 82px;
+  width: 450px;
+  height: 200px;
+}
+}
+@media screen and (max-width: 415px) {
+  .main__name{
+  width: 320px;
+  height: 150px;
 }
 }
