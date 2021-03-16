@@ -5,7 +5,7 @@
   border: 0;
   background-color: transparent;
   grid-area: play-button;
-  cursor: pointer;
+  cursor: none;
   box-sizing: border-box;
   transition: opacity .1s linear .1s;
   margin-left: 15px;

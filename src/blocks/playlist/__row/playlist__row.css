@@ -7,7 +7,7 @@
 }
 
 .playlist__row:hover .playlist__title,  .playlist__row:hover .playlist__feat {
-    cursor: pointer;
+    cursor: none;
     font-style: italic;
 }
 
