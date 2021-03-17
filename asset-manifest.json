@@ -1,27 +1,29 @@
 {
   "files": {
-    "main.css": "/turbina-app/static/css/main.0b17441d.chunk.css",
-    "main.js": "/turbina-app/static/js/main.ea1cf5c4.chunk.js",
-    "main.js.map": "/turbina-app/static/js/main.ea1cf5c4.chunk.js.map",
-    "runtime-main.js": "/turbina-app/static/js/runtime-main.37e9ba5e.js",
-    "runtime-main.js.map": "/turbina-app/static/js/runtime-main.37e9ba5e.js.map",
-    "static/js/2.a3107230.chunk.js": "/turbina-app/static/js/2.a3107230.chunk.js",
-    "static/js/2.a3107230.chunk.js.map": "/turbina-app/static/js/2.a3107230.chunk.js.map",
-    "static/js/3.b04af4c7.chunk.js": "/turbina-app/static/js/3.b04af4c7.chunk.js",
-    "static/js/3.b04af4c7.chunk.js.map": "/turbina-app/static/js/3.b04af4c7.chunk.js.map",
+    "main.css": "/turbina-app/static/css/main.5b090c9a.chunk.css",
+    "main.js": "/turbina-app/static/js/main.32870251.chunk.js",
+    "main.js.map": "/turbina-app/static/js/main.32870251.chunk.js.map",
+    "runtime-main.js": "/turbina-app/static/js/runtime-main.7ef7455f.js",
+    "runtime-main.js.map": "/turbina-app/static/js/runtime-main.7ef7455f.js.map",
+    "static/js/2.83a85456.chunk.js": "/turbina-app/static/js/2.83a85456.chunk.js",
+    "static/js/2.83a85456.chunk.js.map": "/turbina-app/static/js/2.83a85456.chunk.js.map",
+    "static/js/3.16776249.chunk.js": "/turbina-app/static/js/3.16776249.chunk.js",
+    "static/js/3.16776249.chunk.js.map": "/turbina-app/static/js/3.16776249.chunk.js.map",
     "index.html": "/turbina-app/index.html",
-    "static/css/main.0b17441d.chunk.css.map": "/turbina-app/static/css/main.0b17441d.chunk.css.map",
-    "static/js/2.a3107230.chunk.js.LICENSE.txt": "/turbina-app/static/js/2.a3107230.chunk.js.LICENSE.txt",
+    "static/css/main.5b090c9a.chunk.css.map": "/turbina-app/static/css/main.5b090c9a.chunk.css.map",
+    "static/js/2.83a85456.chunk.js.LICENSE.txt": "/turbina-app/static/js/2.83a85456.chunk.js.LICENSE.txt",
+    "static/media/Berlin-album.be980271.jpg": "/turbina-app/static/media/Berlin-album.be980271.jpg",
+    "static/media/Berlin.7e8d9b2c.mp3": "/turbina-app/static/media/Berlin.7e8d9b2c.mp3",
+    "static/media/Dan.123aec0d.jpg": "/turbina-app/static/media/Dan.123aec0d.jpg",
     "static/media/index.css": "/turbina-app/static/media/turbina.ac1ad1fa.png",
-    "static/media/Letov.1d5ce73f.jpg": "/turbina-app/static/media/Letov.1d5ce73f.jpg",
-    "static/media/Monetochka.1ed2c000.jpg": "/turbina-app/static/media/Monetochka.1ed2c000.jpg",
-    "static/media/gosudarstvo.ecf55fdf.mp3": "/turbina-app/static/media/gosudarstvo.ecf55fdf.mp3",
-    "static/media/nazare.58888316.mp3": "/turbina-app/static/media/nazare.58888316.mp3"
+    "static/media/Son.79660966.mp3": "/turbina-app/static/media/Son.79660966.mp3",
+    "static/media/hadn.b8888fc3.jpg": "/turbina-app/static/media/hadn.b8888fc3.jpg",
+    "static/media/hadnDadn.22fff3a4.mp3": "/turbina-app/static/media/hadnDadn.22fff3a4.mp3"
   },
   "entrypoints": [
-    "static/js/runtime-main.37e9ba5e.js",
-    "static/js/2.a3107230.chunk.js",
-    "static/css/main.0b17441d.chunk.css",
-    "static/js/main.ea1cf5c4.chunk.js"
+    "static/js/runtime-main.7ef7455f.js",
+    "static/js/2.83a85456.chunk.js",
+    "static/css/main.5b090c9a.chunk.css",
+    "static/js/main.32870251.chunk.js"
   ]
 }
