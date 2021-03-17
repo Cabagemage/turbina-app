@@ -32,11 +32,13 @@ function AudioPlayer() {
     setDuration(myPlayer.current.duration);
     myPlayer.current.addEventListener("ended", function (e) {
       console.log(index, currentSong, setCurrentSong);
-      if (currentSong) {
+      if (index < songs.length - 1) {
         setIndex(++index);
         setCurrentSong(songs[index]);
       } else {
-        myPlayer.current.loop = true;
+        setIndex(0)
+        setCurrentSong(songs[index]);
+
       }
     });
   });
