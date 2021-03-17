@@ -33,11 +33,10 @@ function AudioPlayer() {
     setDuration(myPlayer.current.duration);
     myPlayer.current.addEventListener("ended", function (e) {
       console.log(index, currentSong, setCurrentSong);
-      setIndex(++index)
+      setIndex(++index);
       setCurrentSong(songs[index]);
     });
   });
-
 
   function toggleExpanded() {
     setExpanded(!expanded);
