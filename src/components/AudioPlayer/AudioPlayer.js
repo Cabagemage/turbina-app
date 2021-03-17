@@ -31,9 +31,9 @@ function AudioPlayer() {
   useEffect(() => {
     playing ? myPlayer.current.play() : myPlayer.current.pause();
     setDuration(myPlayer.current.duration);
-    myPlayer.current.addEventListener("ended", function () {
-      setIndex(index++);
-      console.log(index);
+    myPlayer.current.addEventListener("ended", function (e) {
+      console.log(index, currentSong, setCurrentSong);
+      setIndex(++index)
       setCurrentSong(songs[index]);
     });
   });
