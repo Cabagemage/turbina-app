@@ -19,7 +19,6 @@ function AudioPlayer() {
   const [curTime, setCurTime] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [currentSong, setCurrentSong] = useState(songs[index]);
-
   const onTimeUpdate = throttle((e) => {
     setCurTime(e.target.currentTime);
   }, 1000);
@@ -33,8 +32,12 @@ function AudioPlayer() {
     setDuration(myPlayer.current.duration);
     myPlayer.current.addEventListener("ended", function (e) {
       console.log(index, currentSong, setCurrentSong);
-      setIndex(++index);
-      setCurrentSong(songs[index]);
+      if (currentSong) {
+        setIndex(++index);
+        setCurrentSong(songs[index]);
+      } else {
+        myPlayer.current.loop = true;
+      }
     });
   });
 
@@ -53,7 +56,7 @@ function AudioPlayer() {
     <>
       <audio
         ref={myPlayer}
-        src={currentSong.audio}
+        src={currentSong ? currentSong.audio : null}
         onPlay={onPlay}
         onTimeUpdate={onTimeUpdate}
       >
@@ -75,11 +78,11 @@ function AudioPlayer() {
 
         {/* grid-area: song */}
         <Song
-          title={currentSong.title}
-          musician={currentSong.musician}
-          poet={currentSong.poet}
-          duration={duration}
-          curTime={curTime}
+          title={currentSong ? currentSong.title : "Nazvanie"}
+          musician={currentSong ? currentSong.musician : "default"}
+          poet={currentSong ? currentSong.poet : "default"}
+          duration={duration ? duration : null}
+          curTime={curTime ? curTime : null}
           onClick={(curTime) => {
             myPlayer.current.currentTime = curTime;
           }}
@@ -92,7 +95,7 @@ function AudioPlayer() {
 
         {/* grid-area: video-button */}
         {/* && currentSong.videoUrl */}
-        {expanded && <VideoButton url={currentSong.videoUrl} />}
+        {expanded && <VideoButton url={currentSong ? currentSong.videoUrl : null} />}
 
         {/* grid-area: switch-button */}
         {expanded && (
@@ -100,7 +103,7 @@ function AudioPlayer() {
         )}
 
         {/* grid-area: cover */}
-        {expanded && <Cover cover={currentSong.cover} />}
+        {expanded && <Cover cover={currentSong ? currentSong.cover : null} />}
 
         {/* grid-area: expanded-box */}
         {expanded && (
@@ -109,7 +112,9 @@ function AudioPlayer() {
               {lyricsShown ? "Текст песни:" : "Релизы:"}
             </h3>
             {lyricsShown && (
-              <p className="expanded-box__text">{currentSong.lyrics}</p>
+              <p className="expanded-box__text">
+                {currentSong ? currentSong.lyrics : "Здесь должно что-то быть"}
+              </p>
             )}
             {!lyricsShown && (
               <Playlist songs={songs} changeCurSong={changeCurrentSong} />
