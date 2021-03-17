@@ -7,31 +7,38 @@ import ExpanderButton from "./ExpanderButton";
 import VideoButton from "./VideoButton";
 import Cover from "./Cover";
 import { songs } from "../../utils/songs.js";
-import throttle from "../../utils/throttling.js"
+import throttle from "../../utils/throttling.js";
 const classNames = require("classnames");
-
 
 function AudioPlayer() {
   const myPlayer = useRef(null);
+  let [index, setIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
   const [lyricsShown, setLyricsShown] = useState(songs.length < 2);
   const [duration, setDuration] = useState(0);
   const [curTime, setCurTime] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState(songs[0]);
-
-
-  const onTimeUpdate =  throttle(e => {
+  const [currentSong, setCurrentSong] = useState(songs[index]);
+  const onTimeUpdate = throttle((e) => {
     setCurTime(e.target.currentTime);
   }, 1000);
 
-  const onPlay= e => {
+  const onPlay = (e) => {
     setDuration(e.target.duration);
-  }
+  };
 
   useEffect(() => {
     playing ? myPlayer.current.play() : myPlayer.current.pause();
-    setDuration(myPlayer.current.duration)
+    setDuration(myPlayer.current.duration);
+    myPlayer.current.addEventListener("ended", function (e) {
+      console.log(index, currentSong, setCurrentSong);
+      if (currentSong) {
+        setIndex(++index);
+        setCurrentSong(songs[index]);
+      } else {
+        myPlayer.current.loop = true;
+      }
+    });
   });
 
   function toggleExpanded() {
@@ -48,10 +55,10 @@ function AudioPlayer() {
   return (
     <>
       <audio
-      ref={myPlayer}
-      src={currentSong.audio}
-      onPlay={onPlay}
-      onTimeUpdate={onTimeUpdate}
+        ref={myPlayer}
+        src={currentSong ? currentSong.audio : null}
+        onPlay={onPlay}
+        onTimeUpdate={onTimeUpdate}
       >
         Your browser does not support the <code>audio</code> element.
       </audio>
@@ -71,25 +78,24 @@ function AudioPlayer() {
 
         {/* grid-area: song */}
         <Song
-          title={currentSong.title}
-          musician={currentSong.musician}
-          poet={currentSong.poet}
-          duration={duration}
-          curTime={curTime}
-          onClick={curTime => {
-           myPlayer.current.currentTime = curTime
+          title={currentSong ? currentSong.title : "Nazvanie"}
+          musician={currentSong ? currentSong.musician : "default"}
+          poet={currentSong ? currentSong.poet : "default"}
+          duration={duration ? duration : null}
+          curTime={curTime ? curTime : null}
+          onClick={(curTime) => {
+            myPlayer.current.currentTime = curTime;
           }}
         />
 
         {/* grid-area: expander-button */}
         <ExpanderButton onClick={toggleExpanded} isExpanded={expanded} />
 
-
         {/* Following elements are rendered only when expanded===true (style: audioplayer_expanded)*/}
 
         {/* grid-area: video-button */}
         {/* && currentSong.videoUrl */}
-        {expanded && <VideoButton url={currentSong.videoUrl} />}
+        {expanded && <VideoButton url={currentSong ? currentSong.videoUrl : null} />}
 
         {/* grid-area: switch-button */}
         {expanded && (
@@ -97,7 +103,7 @@ function AudioPlayer() {
         )}
 
         {/* grid-area: cover */}
-        {expanded && <Cover cover={currentSong.cover} />}
+        {expanded && <Cover cover={currentSong ? currentSong.cover : null} />}
 
         {/* grid-area: expanded-box */}
         {expanded && (
@@ -106,14 +112,15 @@ function AudioPlayer() {
               {lyricsShown ? "Текст песни:" : "Релизы:"}
             </h3>
             {lyricsShown && (
-              <p className="expanded-box__text">{currentSong.lyrics}</p>
+              <p className="expanded-box__text">
+                {currentSong ? currentSong.lyrics : "Здесь должно что-то быть"}
+              </p>
             )}
             {!lyricsShown && (
               <Playlist songs={songs} changeCurSong={changeCurrentSong} />
             )}
           </div>
         )}
-
       </div>
     </>
   );
