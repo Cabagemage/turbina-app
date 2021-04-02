@@ -18,6 +18,7 @@ function App() {
 
   }, 250);
 //  Hello, my name is Andrey.
+// Здесь будет исправление! Все ок. 
   let gradient = {
       value:
         "linear-gradient(180deg, rgba(254,176,42,1)0%, rgba(253,150,34,1) 100%)",
