@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Main from "./components/Main.js";
 import ContentBox from "./components/ContentBox";
 import Footer from "./components/Footer";
-import { gsap } from "gsap";
+import { gsap, Elastic } from "gsap";
 import throttle from "./utils/throttling.js";
 function App() {
   const mouseMove = throttle((e) => {
@@ -17,20 +17,21 @@ function App() {
     });
 
   }, 250);
-
-  let gradient = {
-      value:
-        "linear-gradient(180deg, rgba(254,176,42,1)0%, rgba(253,150,34,1) 100%)",
-    },
-    target = document.querySelector("body");
-  gsap.to(gradient, {
-    value:
-      "linear-gradient(180deg, rgba(254,210,51,1) 0%, rgba(253,155,36,1) 100%)",
-    duration: 10,
-    repeat: 3,
-    yoyo: true,
-    onUpdate: () => (target.style.backgroundImage = gradient.value),
-  });
+// Крутой комментарий, который никто не увидит. 
+  // let gradient = {
+  //     value:
+  //       "linear-gradient(180deg, rgba(254,176,42,1)0%, rgba(253,150,34,1) 100%)",
+  //   },
+  //   target = document.querySelector("body");
+  // gsap.to(gradient, {
+  //   value:
+  //     "linear-gradient(180deg, rgba(434,210,51,1) 0%, rgba(253,155,36,1) 100%)",
+  //   duration: 10,
+  //   repeat: 5555,
+  //   ease: Elastic,
+  //   yoyo: true,
+  //   onUpdate: () => (target.style.backgroundImage = gradient.value),
+  // });
 
   gsap.registerPlugin({
     name: "gradient",
@@ -51,8 +52,9 @@ function App() {
   useEffect(() => {
     gsap.to("body", {
       gradient:
-        "linear-gradient(269deg, rgba(165, 75, 75) 0%, rgba(145, 152, 229) 70%)",
-      duration: 10,
+        "linear-gradient(180deg, rgba(165, 75, 75) 0%, rgba(145, 152, 229) 55%)",
+      duration: 15,
+      ease: Elastic,
       repeat: 9999,
       yoyo: true,
     });
